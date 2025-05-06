@@ -3,7 +3,6 @@
 <head>
 <title>DELIVERY FOOD</title>
 <style>
-    
 body {
   font-family: sans-serif;
   margin: 0;
@@ -23,7 +22,8 @@ nav ul {
 }
 
 nav li {
-  display: inline;
+  display: inline-block;
+  position: relative;
   margin-right: 20px;
 }
 
@@ -37,6 +37,7 @@ nav ul ul {
   position: absolute;
   background-color: #fff;
   border: 1px solid #ccc;
+  padding: 10px;
 }
 
 nav li:hover > ul {
@@ -52,53 +53,83 @@ footer {
   padding: 10px;
   text-align: center;
 }
+
+.info-output {
+  margin-top: 20px;
+}
 </style>
+
+<script>
+function enterName() {
+  var name = prompt("Enter your name:");
+  if (name !== null) {
+    document.getElementById("nameOutput").innerText = "Name: " + name;
+  }
+}
+
+function enterAddress() {
+  var address = prompt("Enter your address:");
+  if (address !== null) {
+    document.getElementById("addressOutput").innerText = "Address: " + address;
+  }
+}
+
+function enterContact() {
+  var contact = prompt("Enter your contact number:");
+  if (contact !== null) {
+    document.getElementById("contactOutput").innerText = "Contact Number: " + contact;
+  }
+}
+</script>
+
 </head>
 <body>
-  
 
 <header>
-    <h1>DELIVERY FOOD</h1>
+  <h1>DELIVERY FOOD</h1>
 </header>
-<nav>
-<ul>
-  <header>
-  <li><a href="#">Home</a>
-      <ul>
-         </ul>
-        </li>
-        <li><a href="#">Booking</a>
-          <ul>
-            <li><a href="#">Name</a></li>
-            <li><a href="#">Address</a></li>
-            <li><a href="#">Contact Number</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Food</a>
-          <ul>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Jollibee</a></li>
-            <li><a href="#">Chowking</a></li>
-            <li><a href="#">McDo</a></li>
-          </ul>
-        </li>
-        <li><a href="#">About Us</a>
-          <ul>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <h2>Welcome to Our Delivery Service!</h2>
-    <p>This  is where the main content of your website will go.You can add information about your services,pricing,etc</p>
-   </main>
-  <footer>
-    <p>&copy; 2023 Delivery Service</p>
-  </footer>Designed and developed by: STEPHANIE MAE S. FULLIDO</footer>
 
-</footer> 
+<nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Booking</a>
+      <ul>
+        <li><a href="#" onclick="enterName()">Name</a></li>
+        <li><a href="#" onclick="enterAddress()">Address</a></li>
+        <li><a href="#" onclick="enterContact()">Contact Number</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Food</a>
+      <ul>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Jollibee</a></li>
+        <li><a href="#">Chowking</a></li>
+        <li><a href="#">McDo</a></li>
+      </ul>
+    </li>
+    <li><a href="#">About Us</a>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <h2>Welcome to Our Delivery Service!</h2>
+  <p>This is where the main content of your website will go. You can add information about your services, pricing, etc.</p>
+
+  <div class="info-output">
+    <p id="nameOutput"></p>
+    <p id="addressOutput"></p>
+    <p id="contactOutput"></p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2023 Delivery Service</p>
+  Designed and developed by: STEPHANIE MAE S. FULLIDO
+</footer>
+
 </body>
 </html>
- 
