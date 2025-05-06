@@ -70,6 +70,26 @@
       padding: 10px;
       text-align: center;
     }
+
+    input, textarea {
+      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #eb8f1e;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d17715;
+    }
   </style>
 </head>
 <body>
@@ -88,9 +108,7 @@
           <li><a href="#" onclick="showFood('mcdo')">McDo</a></li>
         </ul>
         <ul>
-          <li><a href="#" onclick="showBookingInfo('name')">Name</a></li>
-          <li><a href="#" onclick="showBookingInfo('address')">Address</a></li>
-          <li><a href="#" onclick="showBookingInfo('contact')">Contact Number</a></li>
+          <li><a href="#" onclick="showBookingForm()">Enter Info</a></li>
         </ul>
       </li>
       <li><a href="#" onclick="showContent('food')">Food</a>
@@ -162,22 +180,30 @@
       document.getElementById("mainContent").innerHTML = foodDetails[brand] || "<p>Food not found.</p>";
     }
 
-    function showBookingInfo(type) {
-      let content = "";
-      switch (type) {
-        case 'name':
-          content = `<h2>Enter Your Name</h2><input type="text" placeholder="Your Name">`;
-          break;
-        case 'address':
-          content = `<h2>Enter Your Address</h2><textarea placeholder="Your Address"></textarea>`;
-          break;
-        case 'contact':
-          content = `<h2>Enter Your Contact Number</h2><input type="tel" placeholder="Your Contact Number">`;
-          break;
-        default:
-          content = "<p>Information not found.</p>";
-      }
-      document.getElementById("mainContent").innerHTML = content;
+    function showBookingForm() {
+      document.getElementById("mainContent").innerHTML = `
+        <h2>Enter Your Details</h2>
+        <form id="bookingForm" onsubmit="submitBooking(event)">
+          <input type="text" id="name" placeholder="Your Name" required>
+          <textarea id="address" placeholder="Your Address" required></textarea>
+          <input type="tel" id="contact" placeholder="Your Contact Number" required>
+          <button type="submit">Enter</button>
+        </form>
+      `;
+    }
+
+    function submitBooking(event) {
+      event.preventDefault(); // Prevent page reload
+
+      // You can store or process the data here if needed
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const contact = document.getElementById('contact').value;
+
+      console.log("Booking Info:", { name, address, contact });
+
+      // Proceed to show food section
+      showContent('food');
     }
   </script>
 
