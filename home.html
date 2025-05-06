@@ -53,6 +53,13 @@
       padding: 20px;
     }
 
+    main img {
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+
     footer {
       background-color: #eb9138;
       padding: 10px;
@@ -78,10 +85,9 @@
       </li>
       <li><a href="#" onclick="showContent('food')">Food</a>
         <ul>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Jollibee</a></li>
-          <li><a href="#">Chowking</a></li>
-          <li><a href="#">McDo</a></li>
+          <li><a href="#" onclick="showFood('jollibee')">Jollibee</a></li>
+          <li><a href="#" onclick="showFood('chowking')">Chowking</a></li>
+          <li><a href="#" onclick="showFood('mcdo')">McDo</a></li>
         </ul>
       </li>
       <li><a href="#" onclick="showContent('about')">About Us</a>
@@ -115,7 +121,7 @@
         `,
         food: `
           <h2>Food</h2>
-          <p>Check out our delicious food from popular brands like Jollibee, Chowking, and McDo.</p>
+          <p>Select from our popular food partners: Jollibee, Chowking, and McDo.</p>
         `,
         about: `
           <h2>About Us</h2>
@@ -123,6 +129,27 @@
         `
       };
       document.getElementById("mainContent").innerHTML = content[section] || "<p>Section not found.</p>";
+    }
+
+    function showFood(brand) {
+      const foodDetails = {
+        jollibee: `
+          <h2>Jollibee</h2>
+          <p>Famous for Chickenjoy, Jollibee offers classic Filipino fast food that everyone loves.</p>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Jollibee_Chickenjoy.jpg" alt="Jollibee Chickenjoy">
+        `,
+        chowking: `
+          <h2>Chowking</h2>
+          <p>Enjoy Chinese-style meals like dimsum, noodles, and rice bowls freshly cooked for you.</p>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Chowking_Lauriat.jpg" alt="Chowking Lauriat">
+        `,
+        mcdo: `
+          <h2>McDonald's (McDo)</h2>
+          <p>Classic American fast food with burgers, fries, and McSpaghetti loved by Filipinos.</p>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/McDonalds_Big_Mac_Menu.jpg" alt="McDonald's Big Mac">
+        `
+      };
+      document.getElementById("mainContent").innerHTML = foodDetails[brand] || "<p>Food not found.</p>";
     }
   </script>
 
