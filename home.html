@@ -101,9 +101,23 @@
   <nav>
     <ul>
       <li><a href="#" onclick="showContent('home')">Home</a></li>
-      <li><a href="#" onclick="showBookingForm()">Booking</a></li>
-      <li><a href="#" onclick="showContent('food')">Food</a></li>
-      <li><a href="#" onclick="showContent('about')">About Us</a></li>
+      <li><a href="#" onclick="showContent('booking')">Booking</a>
+        <ul>
+          <li><a href="#" onclick="showBookingForm()">Enter Info</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="showContent('food')">Food</a>
+        <ul>
+          <li><a href="#" onclick="showFood('jollibee')">Jollibee</a></li>
+          <li><a href="#" onclick="showFood('chowking')">Chowking</a></li>
+          <li><a href="#" onclick="showFood('mcdo')">McDo</a></li>
+        </ul>
+      </li>
+      <li><a href="#" onclick="showContent('about')">About Us</a>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 
@@ -124,6 +138,10 @@
           <h2>Home</h2>
           <p>Welcome to our food delivery service. Fast, easy, and delicious meals delivered right to your door!</p>
         `,
+        booking: `
+          <h2>Booking</h2>
+          <p>Please enter your name, address, and contact number to book your order.</p>
+        `,
         food: `
           <h2>Food</h2>
           <p>Select from our popular food partners: Jollibee, Chowking, and McDo.</p>
@@ -136,9 +154,30 @@
       document.getElementById("mainContent").innerHTML = content[section] || "<p>Section not found.</p>";
     }
 
+    function showFood(brand) {
+      const foodDetails = {
+        jollibee: `
+          <h2>Jollibee</h2>
+          <p>Famous for Chickenjoy, Jollibee offers classic Filipino fast food that everyone loves.</p>
+          <img src="chicken.jpg" alt="Jollibee Chickenjoy">
+        `,
+        chowking: `
+          <h2>Chowking</h2>
+          <p>Enjoy Chinese-style meals like dimsum, noodles, and rice bowls freshly cooked for you.</p>
+          <img src="chowking.jpg" alt="Chowking Dishes">
+        `,
+        mcdo: `
+          <h2>McDonald's (McDo)</h2>
+          <p>Classic American fast food with burgers, fries, and McSpaghetti loved by Filipinos.</p>
+          <img src="mcdo.jpg" alt="McDonald's Food">
+        `
+      };
+      document.getElementById("mainContent").innerHTML = foodDetails[brand] || "<p>Food not found.</p>";
+    }
+
     function showBookingForm() {
       document.getElementById("mainContent").innerHTML = `
-        <h2>Enter Your Booking Details</h2>
+        <h2>Enter Your Details</h2>
         <form id="bookingForm" onsubmit="submitBooking(event)">
           <input type="text" id="name" placeholder="Your Name" required>
           <textarea id="address" placeholder="Your Address" required></textarea>
@@ -149,25 +188,17 @@
     }
 
     function submitBooking(event) {
-      event.preventDefault();
+      event.preventDefault(); // Prevent page reload
 
+      // You can store or process the data here if needed
       const name = document.getElementById('name').value;
       const address = document.getElementById('address').value;
       const contact = document.getElementById('contact').value;
 
-      document.getElementById("mainContent").innerHTML = `
-        <h2>Thank you, ${name}!</h2>
-        <p>Your booking information has been received:</p>
-        <ul>
-          <li><strong>Address:</strong> ${address}</li>
-          <li><strong>Contact:</strong> ${contact}</li>
-        </ul>
-        <p>Redirecting to food menu...</p>
-      `;
+      console.log("Booking Info:", { name, address, contact });
 
-      setTimeout(() => {
-        showContent('food');
-      }, 2000);
+      // Proceed to show food section
+      showContent('food');
     }
   </script>
 
