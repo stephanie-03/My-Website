@@ -43,9 +43,14 @@
       border: 1px solid #ccc;
       left: 0;
       top: 100%;
+      min-width: 150px;
     }
 
     nav li:hover > ul {
+      display: block;
+    }
+
+    nav ul ul li {
       display: block;
     }
 
@@ -77,15 +82,15 @@
     <ul>
       <li><a href="#" onclick="showContent('home')">Home</a></li>
       <li><a href="#" onclick="showContent('booking')">Booking</a>
-         <ul>
+        <ul>
           <li><a href="#" onclick="showFood('jollibee')">Jollibee</a></li>
           <li><a href="#" onclick="showFood('chowking')">Chowking</a></li>
           <li><a href="#" onclick="showFood('mcdo')">McDo</a></li>
         </ul>
         <ul>
-          <li><a href="#">Name</a></li>
-          <li><a href="#">Address</a></li>
-          <li><a href="#">Contact Number</a></li>
+          <li><a href="#" onclick="showBookingInfo('name')">Name</a></li>
+          <li><a href="#" onclick="showBookingInfo('address')">Address</a></li>
+          <li><a href="#" onclick="showBookingInfo('contact')">Contact Number</a></li>
         </ul>
       </li>
       <li><a href="#" onclick="showContent('food')">Food</a>
@@ -141,20 +146,38 @@
         jollibee: `
           <h2>Jollibee</h2>
           <p>Famous for Chickenjoy, Jollibee offers classic Filipino fast food that everyone loves.</p>
-          <img src="chicken.jpg">
+          <img src="chicken.jpg" alt="Jollibee Chickenjoy">
         `,
         chowking: `
           <h2>Chowking</h2>
           <p>Enjoy Chinese-style meals like dimsum, noodles, and rice bowls freshly cooked for you.</p>
-          <img src="chowking.jpg">
+          <img src="chowking.jpg" alt="Chowking Dishes">
         `,
         mcdo: `
           <h2>McDonald's (McDo)</h2>
           <p>Classic American fast food with burgers, fries, and McSpaghetti loved by Filipinos.</p>
-          <img src="mcdo.jpg">
+          <img src="mcdo.jpg" alt="McDonald's Food">
         `
       };
       document.getElementById("mainContent").innerHTML = foodDetails[brand] || "<p>Food not found.</p>";
+    }
+
+    function showBookingInfo(type) {
+      let content = "";
+      switch (type) {
+        case 'name':
+          content = `<h2>Enter Your Name</h2><input type="text" placeholder="Your Name">`;
+          break;
+        case 'address':
+          content = `<h2>Enter Your Address</h2><textarea placeholder="Your Address"></textarea>`;
+          break;
+        case 'contact':
+          content = `<h2>Enter Your Contact Number</h2><input type="tel" placeholder="Your Contact Number">`;
+          break;
+        default:
+          content = "<p>Information not found.</p>";
+      }
+      document.getElementById("mainContent").innerHTML = content;
     }
   </script>
 
