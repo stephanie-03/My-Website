@@ -1,157 +1,103 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-  <title>DELIVERY FOOD</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<title>DELIVERY FOOD</title>
+<style>
 
-    header {
-      background-color: #eb8f1e;
-      padding: 20px;
-      text-align: center;
-    }
+body {
+font-family: sans-serif;
+margin: 0;
+padding: 0;
+}
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: center;
-      background-color: #f4f4f4;
-    }
+header {
+background-color: #eb8f1e;
+padding: 20px;
+text-align: center;
+}
 
-    nav li {
-      display: inline-block;
-      margin-right: 20px;
-      position: relative;
-    }
+nav ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      padding: 10px;
-      display: inline-block;
-    }
+nav li {
+display: inline;
+margin-right: 20px;
+}
 
-    nav ul ul {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      left: 0;
-      top: 100%;
-    }
+nav a {
+text-decoration: none;
+color: #333;
+}
 
-    nav li:hover > ul {
-      display: block;
-    }
+nav ul ul {
+display: none;
+position: absolute;
+background-color: #fff;
+border: 1px solid #ccc;
+}
 
-    main {
-      padding: 20px;
-    }
+nav li\:hover > ul {
+display: block;
+}
 
-    main img {
-      max-width: 300px;
-      height: auto;
-      display: block;
-      margin-top: 10px;
-    }
+main {
+padding: 20px;
+}
 
-    footer {
-      background-color: #eb9138;
-      padding: 10px;
-      text-align: center;
-    }
-  </style>
+footer {
+background-color: #eb9138;
+padding: 10px;
+text-align: center;
+} </style>
+
 </head>
 <body>
 
-  <header>
+<header>
     <h1>DELIVERY FOOD</h1>
+</header>
+<nav>
+<ul>
+  <header>
+  <li><a href="#">Home</a>
+      <ul>
+         </ul>
+        </li>
+        <li><a href="#">Booking</a>
+          <ul>
+            <li><a href="#">Name</a></li>
+            <li><a href="#">Address</a></li>
+            <li><a href="#">Contact Number</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Food</a>
+          <ul>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Jollibee</a></li>
+            <li><a href="#">Chowking</a></li>
+            <li><a href="#">McDo</a></li>
+          </ul>
+        </li>
+        <li><a href="#">About Us</a>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </header>
-
-  <nav>
-    <ul>
-      <li><a href="#" onclick="showContent('home')">Home</a></li>
-      <li><a href="#" onclick="showContent('booking')">Booking</a>
-        <ul>
-          <li><a href="#">Name</a></li>
-          <li><a href="#">Address</a></li>
-          <li><a href="#">Contact Number</a></li>
-        </ul>
-      </li>
-      <li><a href="#" onclick="showContent('food')">Food</a>
-        <ul>
-          <li><a href="#" onclick="showFood('jollibee')">Jollibee</a></li>
-          <li><a href="#" onclick="showFood('chowking')">Chowking</a></li>
-          <li><a href="#" onclick="showFood('mcdo')">McDo</a></li>
-        </ul>
-      </li>
-      <li><a href="#" onclick="showContent('about')">About Us</a>
-        <ul>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <main id="mainContent">
+  <main>
     <h2>Welcome to Our Delivery Service!</h2>
-    <p>This is where the main content of your website will go. You can add information about your services, pricing, etc.</p>
-  </main>
-
+    <p>This  is where the main content of your website will go.You can add information about your services,pricing,etc</p>
+   </main>
   <footer>
     <p>&copy; 2023 Delivery Service</p>
-    <p>Designed and developed by: STEPHANIE MAE S. FULLIDO</p>
-  </footer>
+  </footer>Designed and developed by: STEPHANIE MAE S. FULLIDO</footer>
 
-  <script>
-    function showContent(section) {
-      const content = {
-        home: `
-          <h2>Home</h2>
-          <p>Welcome to our food delivery service. Fast, easy, and delicious meals delivered right to your door!</p>
-        `,
-        booking: `
-          <h2>Booking</h2>
-          <p>Please enter your name, address, and contact number to book your order.</p>
-        `,
-        food: `
-          <h2>Food</h2>
-          <p>Select from our popular food partners: Jollibee, Chowking, and McDo.</p>
-        `,
-        about: `
-          <h2>About Us</h2>
-          <p>We are passionate about delivering quality food and excellent service. Contact us anytime for support.</p>
-        `
-      };
-      document.getElementById("mainContent").innerHTML = content[section] || "<p>Section not found.</p>";
-    }
-
-    function showFood(brand) {
-      const foodDetails = {
-        jollibee: `
-          <h2>Jollibee</h2>
-          <p>Famous for Chickenjoy, Jollibee offers classic Filipino fast food that everyone loves.</p>
-          <img src="chicken.jpg">
-        `,
-        chowking: `
-          <h2>Chowking</h2>
-          <p>Enjoy Chinese-style meals like dimsum, noodles, and rice bowls freshly cooked for you.</p>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Chowking_Lauriat.jpg" alt="Chowking Lauriat">
-        `,
-        mcdo: `
-          <h2>McDonald's (McDo)</h2>
-          <p>Classic American fast food with burgers, fries, and McSpaghetti loved by Filipinos.</p>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/McDonalds_Big_Mac_Menu.jpg" alt="McDonald's Big Mac">
-        `
-      };
-      document.getElementById("mainContent").innerHTML = foodDetails[brand] || "<p>Food not found.</p>";
-    }
-  </script>
-
+</footer> 
 </body>
 </html>
